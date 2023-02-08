@@ -1,0 +1,11 @@
+@import "the-new-css-reset/css/reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+  color-scheme: dark;
+  font-family: Roboto;
+}
+body {
+  color: white;
+  background: #303030;
+}
