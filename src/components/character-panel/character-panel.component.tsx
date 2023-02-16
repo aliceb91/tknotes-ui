@@ -1,0 +1,1 @@
+import styles from './character-panel.module.scss';

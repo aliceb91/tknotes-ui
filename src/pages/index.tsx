@@ -1,4 +1,5 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {CharacterPage} from '../components/character-page/character-page.component';
 
 const darkTheme = createTheme({
   palette: {
@@ -9,7 +10,7 @@ const darkTheme = createTheme({
 export default function Home() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <>Birds home page</>
+      <CharacterPage/>
     </ThemeProvider>
     )
 }
