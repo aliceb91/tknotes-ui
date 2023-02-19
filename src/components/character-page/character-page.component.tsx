@@ -1,6 +1,7 @@
 import stytles from './character-page.module.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import { CharacterSelector } from '../character-selector/character-selector.component';
+import {SearchBar} from '../search-bar/search-bar.component'; 
 
 export function CharacterPage() {
   let isLoading = useRef(true)
@@ -33,6 +34,6 @@ export function CharacterPage() {
   }, [characters])
 
   return (
-    <CharacterSelector characters={characters}/>
+    <SearchBar characters={characters}/>
   )
 }

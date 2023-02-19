@@ -15,7 +15,11 @@ export function CharacterSelector(props: CharacterSelector) {
   }
   
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth sx={{
+      m: 1,
+      minWidth: 325,
+      maxWidth: 325
+    }}>
       <InputLabel id="demo-simple-select-label">Player Character</InputLabel>
       <Select
         labelId="demo-simple-select-label"
