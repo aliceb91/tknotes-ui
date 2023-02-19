@@ -4,6 +4,7 @@ import {useState} from 'react';
 
 interface CharacterSelector {
   characters: string[];
+  characterSet: (selected: string) => void;
 }
 
 export function CharacterSelector(props: CharacterSelector) {
@@ -11,6 +12,7 @@ export function CharacterSelector(props: CharacterSelector) {
 
   const handleChange = (event: any) => {
     setCharacter(event.target.value)
+    props.characterSet(event.target.value)
     console.log(event.target.value)
   }
   

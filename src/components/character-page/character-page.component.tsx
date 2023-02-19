@@ -1,6 +1,5 @@
 import stytles from './character-page.module.scss';
 import React, { useEffect, useRef, useState } from 'react';
-import { CharacterSelector } from '../character-selector/character-selector.component';
 import {SearchBar} from '../search-bar/search-bar.component'; 
 
 export function CharacterPage() {
