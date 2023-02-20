@@ -1,0 +1,11 @@
+.fullPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 480px) {
+  .fullPage {
+    flex-direction: column;
+  }
+}
