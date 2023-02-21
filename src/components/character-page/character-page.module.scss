@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  .pageLeft, .pageRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%
+  }
+}
+
+.title {
+  align-self: flex-start;
+  margin-left: 12px;
 }
 
 @media (max-width: 480px) {

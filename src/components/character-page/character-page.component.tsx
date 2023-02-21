@@ -6,10 +6,11 @@ import {SearchField} from '../search-field/search-field.component';
 import {NotesArea} from '../notes-area/notes-area.component';
 
 export function CharacterPage() {
-  let isLoading = useRef(true)
-  const [characters, setCharacters] = useState([])
-  const [currentCharacter, setcurrentCharacter] = useState('')
-  const [currentMoveList, setcurrentMoveList] = useState([])
+  let isLoading = useRef(true);
+  const [characters, setCharacters] = useState([]);
+  const [currentCharacter, setcurrentCharacter] = useState('');
+  const [currentMoveList, setcurrentMoveList] = useState([]);
+  const [oppCharacter, setOppCharacter] =useState('');
 
   useEffect(() => {
     let url: string;
@@ -39,6 +40,12 @@ export function CharacterPage() {
 
   function characterSet(selected: string) {
     setcurrentCharacter(selected)
+    console.log(selected)
+  }
+
+  function oppCharacterSet(selected: string) {
+    setOppCharacter(selected)
+
     let url: string;
 
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
@@ -56,13 +63,13 @@ export function CharacterPage() {
 
   return (
     <div className={styles.fullPage}>
-      <div className='page-left'>
+      <div className={styles.pageLeft}>
         <CharacterSelector characters={characters} characterSet={characterSet}></CharacterSelector>
-        <CharacterPanel/>
+        <h2 className={styles.title}>Opponent Character</h2>
+        <CharacterPanel characters={characters} oppCharacterSet={oppCharacterSet}></CharacterPanel>
       </div>
-      <div className='page-right'>
-        <SearchField currentCharacter={currentCharacter} currentMoveList={currentMoveList}></SearchField>
-        <NotesArea/>
+      <div className={styles.pageRight}>
+        <NotesArea oppCharacter={oppCharacter} currentMoveList={currentMoveList}></NotesArea>
       </div>
     </div>
   )

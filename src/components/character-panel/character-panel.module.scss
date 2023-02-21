@@ -1,8 +1,24 @@
 .square {
   display: flex;
   max-width: 93vw;
-  width: 200px;
-  height: 200px;
+  $size: 100px;
+  width: $size;
+  height: $size;
   background: #32C791;
   margin: 2px;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  &:hover { 
+    background-color: darken(#32C791, 10%);
+    cursor: pointer;
+  }
+}
+
+.panelArea {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

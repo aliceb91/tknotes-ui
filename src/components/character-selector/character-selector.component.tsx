@@ -17,7 +17,7 @@ export function CharacterSelector(props: CharacterSelector) {
   }
   
   return (
-    <FormControl fullWidth sx={{
+    <FormControl className={styles.characterSelector} fullWidth sx={{
       m: 1,
       minWidth: 325,
       maxWidth: 325

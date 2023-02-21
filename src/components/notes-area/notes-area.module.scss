@@ -3,5 +3,11 @@
   border-width: 8px;
   border-color: #32C791;
   width: 98%;
-  height: 80%;
+  height: 100%;
+}
+
+.topRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

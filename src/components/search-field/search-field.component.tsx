@@ -2,7 +2,7 @@ import styles from './search-field.module.scss';
 import {Autocomplete, TextField} from '@mui/material'
 
 interface SearchField {
-  currentCharacter: string;
+  oppCharacter: string;
   currentMoveList: any[];
 }
 
