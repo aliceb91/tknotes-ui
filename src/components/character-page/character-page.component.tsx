@@ -10,7 +10,8 @@ export function CharacterPage() {
   const [characters, setCharacters] = useState([]);
   const [currentCharacter, setcurrentCharacter] = useState('');
   const [currentMoveList, setcurrentMoveList] = useState([]);
-  const [oppCharacter, setOppCharacter] =useState('');
+  const [oppCharacter, setOppCharacter] = useState('');
+  const [move, setMove] = useState('');
 
   useEffect(() => {
     let url: string;
@@ -59,6 +60,10 @@ export function CharacterPage() {
     .then((moveList) => {
       setcurrentMoveList(moveList)
     })
+  }
+
+  function moveSet(move) {
+
   }
 
   return (
