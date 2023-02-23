@@ -18,5 +18,8 @@
 @media (max-width: 480px) {
   .fullPage {
     flex-direction: column;
+    .pageLeft, .pageRight {
+      width: 100%;
+    }
   }
 }

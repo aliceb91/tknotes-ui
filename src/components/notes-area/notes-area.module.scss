@@ -11,3 +11,13 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+@media (max-width: 480px) {
+  .border {
+    border-width: 4px;
+  }
+  
+  .topRow {
+    flex-direction: column;
+  }
+}

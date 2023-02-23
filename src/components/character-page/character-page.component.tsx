@@ -1,5 +1,5 @@
 import styles from './character-page.module.scss';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, } from 'react';
 import {CharacterPanel} from '../character-panel/character-panel.component';
 import {CharacterSelector} from '../character-selector/character-selector.component';
 import {SearchField} from '../search-field/search-field.component';
@@ -12,6 +12,7 @@ export function CharacterPage() {
   const [currentMoveList, setcurrentMoveList] = useState([]);
   const [oppCharacter, setOppCharacter] = useState('');
   const [move, setMove] = useState('');
+  const [width, setWidth] =useState(0);
 
   useEffect(() => {
     let url: string;
@@ -62,20 +63,25 @@ export function CharacterPage() {
     })
   }
 
-  function moveSet(move) {
+  useEffect(() => {
+    setWidth(() => window.innerWidth)
+    console.log(window.innerWidth)
+  }, [width])
 
-  }
-
-  return (
-    <div className={styles.fullPage}>
-      <div className={styles.pageLeft}>
-        <CharacterSelector characters={characters} characterSet={characterSet}></CharacterSelector>
-        <h2 className={styles.title}>Opponent Character</h2>
-        <CharacterPanel characters={characters} oppCharacterSet={oppCharacterSet}></CharacterPanel>
+    return(
+      <div className={styles.fullPage}>
+        <div className={styles.pageLeft}>
+          <CharacterSelector characters={characters} characterSet={characterSet} playerIndicator="Player Character"></CharacterSelector>
+          {
+            width < 480
+            ? <CharacterSelector characters={characters} characterSet={oppCharacterSet} playerIndicator="Opponent Character"></CharacterSelector>
+            : <><h2 className={styles.title}>Opponent Character</h2>
+              <CharacterPanel characters={characters} oppCharacterSet={oppCharacterSet}></CharacterPanel></>
+          }
+        </div>
+        <div className={styles.pageRight}>
+          <NotesArea oppCharacter={oppCharacter} currentMoveList={currentMoveList}></NotesArea>
+        </div>
       </div>
-      <div className={styles.pageRight}>
-        <NotesArea oppCharacter={oppCharacter} currentMoveList={currentMoveList}></NotesArea>
-      </div>
-    </div>
-  )
+    )
 }

@@ -5,6 +5,7 @@ import {useState} from 'react';
 interface CharacterSelector {
   characters: string[];
   characterSet: (selected: string) => void;
+  playerIndicator: string;
 }
 
 export function CharacterSelector(props: CharacterSelector) {
@@ -22,12 +23,12 @@ export function CharacterSelector(props: CharacterSelector) {
       minWidth: 325,
       maxWidth: 325
     }}>
-      <InputLabel id="demo-simple-select-label">Player Character</InputLabel>
+      <InputLabel id="demo-simple-select-label">{props.playerIndicator}</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={character}
-        label="Player Character"
+        label={props.playerIndicator}
         onChange={handleChange}
       >
         {
