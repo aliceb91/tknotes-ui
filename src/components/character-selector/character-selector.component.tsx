@@ -1,19 +1,24 @@
 import styles from './character-selector.module.scss';
 import {Select, FormControl, InputLabel, MenuItem} from '@mui/material';
-import {useState} from 'react';
 
 interface CharacterSelector {
   characters: string[];
-  characterSet: (selected: string) => void;
+  currentCharacter: string;
+  setCurrentCharacter: (selected: string) => void;
   playerIndicator: string;
+  clearSearch: () => void;
 }
 
 export function CharacterSelector(props: CharacterSelector) {
-  const [character, setCharacter] = useState('');
 
   const handleChange = (event: any) => {
-    setCharacter(event.target.value)
-    props.characterSet(event.target.value)
+    props.setCurrentCharacter(event.target.value)
+    if (props.playerIndicator === "Player Character") {
+      localStorage.setItem('currentCharacter', event.target.value)
+    }
+    if (props.playerIndicator === "Opponent Character") {
+      props.clearSearch()
+    }
     console.log(event.target.value)
   }
   
@@ -27,7 +32,7 @@ export function CharacterSelector(props: CharacterSelector) {
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={character}
+        value={props.currentCharacter}
         label={props.playerIndicator}
         onChange={handleChange}
       >

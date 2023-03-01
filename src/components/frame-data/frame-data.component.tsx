@@ -6,10 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { MoveData } from '../notes-area/notes-area.component';
+import { MoveData } from '../character-page/character-page.component';
 
 interface FrameData {
-  move?: MoveData;
+  move: MoveData | null;
 }
 
 export function FrameData(props: FrameData) {
@@ -18,7 +18,7 @@ export function FrameData(props: FrameData) {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650}} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Input</TableCell>
