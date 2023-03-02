@@ -4,6 +4,7 @@ interface CharacterPanel {
   characters: string[];
   oppCharacterSet: (selected: any) => void;
   clearSearch: () => void;
+  noteFilter: () => void;
 }
 
 export function CharacterPanel(props: CharacterPanel) {

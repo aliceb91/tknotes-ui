@@ -27,6 +27,7 @@ export function CharacterPage() {
   const [width, setWidth] = useState(0);
   const [currentSelect, setCurrentSelect] = useState<{label:string, id: string} | null>(null)
   const [playerNotes, setPlayerNotes] = useState<any[]>([]);
+  const [filteredNotes, setFilteredNotes] =useState<any[]>([]);
 
   useEffect(() => {
     let url: string;
@@ -57,6 +58,15 @@ export function CharacterPage() {
         counterHitFrame: "-",
         notes: "-"
       })
+
+      setFilteredNotes([{
+        _id: '-',
+        playerCharacter: '-',
+        oppCharacter: '-',
+        command: '-',
+        playerNote: '-'
+      }])
+
       if (currentCharacterStored) {
         setCurrentCharacter(currentCharacterStored)
       }
@@ -94,11 +104,41 @@ export function CharacterPage() {
     })
   }
 
+  function noteFilter() {
+
+    console.log({currentCharacter, oppCharacter, move, playerNotes, currentSelect})
+
+    let theNotes
+
+    if (currentCharacter === '' || oppCharacter === '') {
+      theNotes = [{
+        _id: '-',
+        playerCharacter: '-',
+        oppCharacter: '-',
+        command: '-',
+        playerNote: '-'
+      }]
+
+    } else if (move?._id === '-' || currentSelect === null) {
+      theNotes =playerNotes.filter((note) => {
+        return note.playerCharacter === currentCharacter && note.oppCharacter === oppCharacter
+      })
+    } else {
+      theNotes = playerNotes.filter((note) => {
+        return note.playerCharacter === currentCharacter && note.oppCharacter === oppCharacter && note.command === currentSelect?.label
+      })
+    }
+    setFilteredNotes(theNotes)
+    console.log('filtered notes', theNotes)
+  }
+
+  useEffect(noteFilter, [playerNotes, currentCharacter, oppCharacter, move, currentSelect])
+
   function clearSearch() {
     setCurrentSelect(null)
     setMove({
       _id: "-",
-       characterName: "-",
+      characterName: "-",
       command: "-",
       hitLevel: "-",
       damage: "-",
@@ -124,6 +164,7 @@ export function CharacterPage() {
             setCurrentCharacter={setCurrentCharacter} 
             playerIndicator="Player Character" 
             clearSearch={clearSearch}
+            noteFilter={noteFilter}
           />
           {
             width < 480
@@ -133,6 +174,7 @@ export function CharacterPage() {
                 setCurrentCharacter={oppCharacterSet} 
                 playerIndicator="Opponent Character" 
                 clearSearch={clearSearch}
+                noteFilter={noteFilter}
               />
             : <>
                 <h2 className={styles.title}>Opponent Character</h2>
@@ -140,6 +182,7 @@ export function CharacterPage() {
                   characters={characters} 
                   oppCharacterSet={oppCharacterSet} 
                   clearSearch={clearSearch}
+                  noteFilter={noteFilter}
                 />
               </>
           }
@@ -154,6 +197,10 @@ export function CharacterPage() {
             setCurrentSelect={setCurrentSelect}
             playerNotes={playerNotes}
             setPlayerNotes={setPlayerNotes}
+            filteredNotes={filteredNotes}
+            setFilteredNotes={setFilteredNotes}
+            noteFilter={noteFilter}
+            clearSearch={clearSearch}
           />
         </div>
       </div>

@@ -7,6 +7,7 @@ interface CharacterSelector {
   setCurrentCharacter: (selected: string) => void;
   playerIndicator: string;
   clearSearch: () => void;
+  noteFilter: () => void;
 }
 
 export function CharacterSelector(props: CharacterSelector) {
@@ -23,10 +24,14 @@ export function CharacterSelector(props: CharacterSelector) {
   }
   
   return (
-    <FormControl className={styles.characterSelector} fullWidth sx={{
+    <FormControl fullWidth sx={{
       m: 1,
       minWidth: 325,
-      maxWidth: 325
+      maxWidth: 325,
+      '& .MuiFormLabel-root.MuiInputLabel-root': {color: '#32C791'},
+      '& .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791'},
+      '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {color: '#32C791'},
+      '& .Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791'}
     }}>
       <InputLabel id="demo-simple-select-label">{props.playerIndicator}</InputLabel>
       <Select

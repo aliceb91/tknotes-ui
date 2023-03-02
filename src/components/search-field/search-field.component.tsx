@@ -8,6 +8,8 @@ interface SearchField {
   setMove: (move: MoveData | null) => void;
   currentSelect: {label:string, id: string} | null;
   setCurrentSelect: (select: {label:string, id: string} | null) => void;
+  noteFilter: () => void;
+  clearSearch: () => void;
 }
 
 export function SearchField(props: SearchField) {
@@ -17,7 +19,7 @@ export function SearchField(props: SearchField) {
     console.log(`handle change`, value)
   
     if(reason ==="clear") {
-      props.setCurrentSelect(null)
+      props.clearSearch()
     }
     
     if(value === null) {
@@ -28,7 +30,6 @@ export function SearchField(props: SearchField) {
       return x._id === value.id
     })
     console.log(theMove)
-    console.log(props.currentMoveList)
     if (theMove) {
       props.setMove(theMove);
       props.setCurrentSelect(value);

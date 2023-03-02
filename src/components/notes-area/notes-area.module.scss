@@ -3,7 +3,8 @@
   border-width: 8px;
   border-color: #32C791;
   width: 98%;
-  height: 100%;
+  height: calc(100vh - 68px);
+  overflow: hidden;
 }
 
 .topRow {

@@ -5,6 +5,7 @@ import {useState} from 'react';
 interface NoteInput {
   setPlayerNotes: (note: any[]) => void;
   createNote: (playerNote: string) => void;
+  noteFilter: () => void;
 }
 
 export function NoteInput(props: NoteInput) {
@@ -13,6 +14,13 @@ export function NoteInput(props: NoteInput) {
   function handleClick() {
     props.createNote(currentText)
     setCurrentText('')
+    props.noteFilter();
+  }
+
+  function keyPress(key: any) {
+    if (key.keyCode === 13) {
+      handleClick()
+    }
   }
 
   return (
@@ -31,10 +39,11 @@ export function NoteInput(props: NoteInput) {
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           setCurrentText(event.target.value);
         }}
+        onKeyDown={(key) => keyPress(key)}
         />
       </Box>
 
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={2} sx={{paddingBottom: '8px', paddingRight: '8px', display: 'flelx', flexDirection: 'row-reverse'}}>
       {
         currentText === ''
         ? <Button variant="contained" disabled>Save Note</Button>
