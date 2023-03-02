@@ -1,6 +1,18 @@
 @import "the-new-css-reset/css/reset.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+@font-face {
+  font-family: "Play";
+  src: local("Play"),
+   url("./fonts/Play-Regular.TTF") format("truetype");
+   font-weight: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+   url("./fonts/Roboto-Regular.TTF") format("truetype");
+   font-weight: normal;
+}
 
 html {
   color-scheme: dark;
