@@ -13,6 +13,13 @@
   justify-content: space-between;
 }
 
+.opponentCharacterName {
+  margin-top: 8px;
+  margin-left: 8px;
+  font-family: 'Play', sans-serif;
+  font-size: 1.7rem;
+}
+
 @media (max-width: 480px) {
   .border {
     border-width: 4px;

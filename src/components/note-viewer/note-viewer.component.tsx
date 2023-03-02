@@ -42,7 +42,7 @@ export function NoteViewer(props: NoteViewer) {
 }
 
   return (
-    <TableContainer component={Paper} sx={{height: 'calc(100% - 315px)', overflow: 'scroll'}}>
+    <TableContainer component={Paper} sx={{height: 'calc(100% - 18.7em)', overflow: 'scroll-y'}}>
       <Table stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
@@ -55,8 +55,9 @@ export function NoteViewer(props: NoteViewer) {
             <TableRow
               key={row._id}
               onClick={(event: any) => {
-                !["button", "svg", "path"].includes(event.target.getAttribute("name"))  && changeView(row)
-                console.log(event.target)
+                if (!event.target.matches('button, button *')) {
+                  changeView(row)
+                }
               }}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >

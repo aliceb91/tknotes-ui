@@ -30,6 +30,8 @@ export function NoteInput(props: NoteInput) {
           width: '100%',
           maxWidth: '100%',
           padding: '8px',
+          '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {color: '#32C791 !important'},
+          '& .Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791 !important'}
         }}
       >
         <TextField fullWidth 
@@ -43,11 +45,20 @@ export function NoteInput(props: NoteInput) {
         />
       </Box>
 
-      <Stack direction="row" spacing={2} sx={{paddingBottom: '8px', paddingRight: '8px', display: 'flelx', flexDirection: 'row-reverse'}}>
+      <Stack 
+        direction="row" 
+        spacing={2} 
+        sx={{
+          paddingBottom: '8px',
+          paddingRight: '8px', 
+          display: 'flelx', 
+          flexDirection: 'row-reverse'
+        }}
+      >
       {
         currentText === ''
         ? <Button variant="contained" disabled>Save Note</Button>
-        : <Button variant="contained"
+        : <Button variant="contained" sx={{backgroundColor: '#32C791 !important', '&:hover': {backgroundColor: '#289e73 !important'}}}
           onClick={() => handleClick()}
           >Save Note</Button>
       }

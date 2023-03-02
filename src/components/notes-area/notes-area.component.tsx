@@ -46,7 +46,11 @@ export function NotesArea(props: NotesArea) {
   return (
     <div className={styles.border}>
       <div className={styles.topRow}>
-        <h2>{props.oppCharacter}</h2>
+        <h2 className={styles.opponentCharacterName}>{
+          props.oppCharacter === "Kuma"
+          ? "Kuma / Panda"
+          : props.oppCharacter
+        }</h2>
         <SearchField 
           oppCharacter={props.oppCharacter} 
           currentMoveList={props.currentMoveList} 

@@ -46,7 +46,9 @@ export function SearchField(props: SearchField) {
       sx={{
         m: 1,
         minWidth: 325,
-        maxWidth: 325
+        maxWidth: 325,
+        '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {color: '#32C791 !important'},
+        '& .Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791 !important'}
       }}
       renderInput={(params) => <TextField {...params} label="Move" />}
       renderOption={(props, option) => {

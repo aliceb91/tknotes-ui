@@ -15,12 +15,15 @@ export function CharacterPanel(props: CharacterPanel) {
         return (
           <div 
             key={character} 
-            className={styles.square} 
+            className={`${styles.square}`} 
             style={{backgroundImage: `url(/tk-icons/${character}.png)`}}
-            onClick={() => {
+            onClick={(event: any) => {
               console.log(`setting opponent character to ${character}`)
               props.oppCharacterSet(character)
               props.clearSearch()
+
+              document.querySelectorAll(`.${styles.square}`).forEach(el => el.classList.remove(styles.activeCharacter));
+              event.target.classList.add(styles.activeCharacter);
             }}
            >
           </div>

@@ -28,10 +28,8 @@ export function CharacterSelector(props: CharacterSelector) {
       m: 1,
       minWidth: 325,
       maxWidth: 325,
-      '& .MuiFormLabel-root.MuiInputLabel-root': {color: '#32C791'},
-      '& .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791'},
-      '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {color: '#32C791'},
-      '& .Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791'}
+      '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {color: '#32C791 !important'},
+      '& .Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#32C791 !important'}
     }}>
       <InputLabel id="demo-simple-select-label">{props.playerIndicator}</InputLabel>
       <Select
