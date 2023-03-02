@@ -16,7 +16,7 @@ export function CharacterPanel(props: CharacterPanel) {
           <div 
             key={character} 
             className={`${styles.square}`} 
-            style={{backgroundImage: `url(/tk-icons/${character}.png)`}}
+            style={{backgroundImage: `url(/tk-icons/${character.toLowerCase()}.png)`}}
             onClick={(event: any) => {
               console.log(`setting opponent character to ${character}`)
               props.oppCharacterSet(character)
