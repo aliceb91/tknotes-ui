@@ -59,7 +59,7 @@ export function NoteViewer(props: NoteViewer) {
                   changeView(row)
                 }
               }}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }, '&:hover': {cursor: "pointer"}}}
             >
               <TableCell component="th" scope="row">
                 {row.command}

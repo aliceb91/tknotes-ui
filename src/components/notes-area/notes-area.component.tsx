@@ -51,7 +51,7 @@ export function NotesArea(props: NotesArea) {
           ? "Kuma / Panda"
           : props.oppCharacter
         }</h2>
-        <SearchField 
+        <SearchField
           oppCharacter={props.oppCharacter} 
           currentMoveList={props.currentMoveList} 
           setMove={props.setMove} 

@@ -181,8 +181,8 @@ export function CharacterPage() {
                 <CharacterPanel 
                   characters={characters} 
                   oppCharacterSet={oppCharacterSet} 
-                  clearSearch={clearSearch}
-                  noteFilter={noteFilter}
+                 clearSearch={clearSearch}
+                 noteFilter={noteFilter}
                 />
               </>
           }
